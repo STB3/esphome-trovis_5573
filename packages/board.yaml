@@ -1,0 +1,20 @@
+esphome:
+  name: esphome-trovis
+  friendly_name: ESPHome Trovis 5573 Adapter
+  name_add_mac_suffix: true
+
+esp32:
+  variant: esp32c6
+  flash_size: 4MB
+  framework:
+    type: esp-idf
+
+logger:
+  level: INFO
+  baud_rate: 0
+  logs:
+    modbus.controller: INFO
+    modbus.transport: INFO
+
+ota:
+  - platform: esphome

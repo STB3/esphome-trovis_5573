@@ -1,0 +1,58 @@
+uart:
+  id: modbus_uart
+  tx_pin: GPIO2
+  rx_pin: GPIO3
+  baud_rate: 9600
+  stop_bits: 1
+  data_bits: 8
+  parity: NONE
+  rx_buffer_size: 512
+  debug:
+    direction: BOTH
+    dummy_receiver: false
+    sequence:
+      - lambda: |-
+          if (direction == uart::UART_DIRECTION_RX) {
+            id(led_uart_rx).execute();
+          } else {
+            id(led_uart_tx).execute();
+          }
+
+modbus:
+  id: modbus1
+  uart_id: modbus_uart
+#  flow_control_pin: GPIO2
+  send_wait_time: 250ms
+
+modbus_controller:
+  - id: trovis
+    modbus_id: modbus1
+    address: 255
+    command_throttle: 2000ms
+    setup_priority: -10
+    update_interval: 30s
+
+script:
+  - id: led_uart_rx
+    mode: restart
+    then:
+      - light.turn_on:
+          id: neopixel_status
+          red: 100%
+          green: 0%
+          blue: 0%
+          brightness: 50%
+      - delay: 100ms
+      - script.execute: led_restore_status
+
+  - id: led_uart_tx
+    mode: restart
+    then:
+      - light.turn_on:
+          id: neopixel_status
+          red: 0%
+          green: 0%
+          blue: 100%
+          brightness: 50%
+      - delay: 100ms
+      - script.execute: led_restore_status

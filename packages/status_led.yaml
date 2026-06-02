@@ -1,0 +1,19 @@
+light:
+  # Physischer NeoPixel-Strip – 1 LED, intern
+  - platform: esp32_rmt_led_strip
+    id: neopixel_strip
+    rgb_order: GRB
+    pin: GPIO14
+    num_leds: 1
+    chipset: ws2812
+    internal: true
+
+  # LED 1 – WiFi-/System-Status
+  - platform: partition
+    id: neopixel_status
+    name: "Status LED"
+    internal: true
+    segments:
+      - id: neopixel_strip
+        from: 0
+        to: 0

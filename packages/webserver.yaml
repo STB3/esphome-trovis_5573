@@ -1,0 +1,3 @@
+web_server:
+  version: 3
+  port: 80
