@@ -19,7 +19,8 @@ modbus_controller:
     address: 255
     command_throttle: 200ms
     setup_priority: -10
-    update_interval: 30s
+    update_interval: 30s    # do not use values < 30s. Current cycle through all registers takes 22s
+                            # in case the device is not responding
     offline_skip_updates: 0
     on_online:
       then:
