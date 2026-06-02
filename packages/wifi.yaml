@@ -53,20 +53,8 @@ script:
 
 captive_portal:
 
-text_sensor:
-  - platform: wifi_info
-    ip_address:
-      name: "WLAN IP"
-      entity_category: diagnostic
-    mac_address:
-      name: "WLAN Mac"
-      entity_category: diagnostic
-    ssid:
-      name: "WLAN SSID"
-      entity_category: diagnostic
-
 sensor:
   - platform: wifi_signal
-    name: "WLAN Signalstärke"
+    name: "WiFi RSSI"
     id: wifi_signal_strength
     update_interval: 60s

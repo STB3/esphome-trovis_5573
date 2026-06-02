@@ -10,11 +10,11 @@ esp32:
     type: esp-idf
 
 logger:
-  level: INFO
-  baud_rate: 0
+  level: DEBUG
+  hardware_uart: USB_SERIAL_JTAG
   logs:
-    modbus.controller: INFO
-    modbus.transport: INFO
+    modbus.controller: DEBUG
+    modbus.transport: VERBOSE
 
 ota:
   - platform: esphome

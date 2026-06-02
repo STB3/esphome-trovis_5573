@@ -38,6 +38,9 @@ sensor:
     accuracy_decimals: 1
     filters:
       - multiply: 0.1
+    on_value:
+      then:
+        - script.execute: led_uart_rx
 
   - platform: modbus_controller
     modbus_controller_id: trovis
