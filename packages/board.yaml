@@ -14,7 +14,7 @@ logger:
   hardware_uart: USB_SERIAL_JTAG
   logs:
     modbus.controller: DEBUG
-    modbus.transport: VERBOSE
+    modbus.transport: DEBUG
 
 ota:
   - platform: esphome
