@@ -36,7 +36,6 @@ Der Adapter ermöglicht die vollständige Integration des Reglers in [Home Assis
   - Grün = WLAN verbunden
   - Grün blinkend = Kein WLAN, Accesspoint aktiv
   - Rot-Flash = Modbus-Daten empfangen (RX)
-  - Blau-Flash = Modbus-Daten gesendet (TX)
 - OTA-Updates (Over-the-Air)
 
 ---
@@ -227,9 +226,8 @@ Die einzelne WS2812-NeoPixel-LED an **GPIO14** zeigt den Systemzustand auf einen
 | 🟢 Grün | Dauerhaft | WLAN verbunden, System bereit |
 | 🟢 Grün | Blinkend (0,5 Hz) | Kein WLAN – Accesspoint aktiv (`ESPHome-Trovis`) |
 | 🔴 Rot | Kurzer Flash (100 ms) | Modbus-Daten empfangen (RX) |
-| 🔵 Blau | Kurzer Flash (100 ms) | Modbus-Daten gesendet (TX) |
 
-Nach jedem RX/TX-Flash kehrt die LED automatisch zum aktuellen Verbindungsstatus zurück.
+Nach jedem RX-Flash kehrt die LED automatisch zum aktuellen Verbindungsstatus zurück.
 
 ---
 
