@@ -50,7 +50,7 @@ script:
           red: 100%
           green: 0%
           blue: 0%
-          brightness: 50%
+          brightness: !lambda "return id(led_brightness);"
       - delay: 500ms
       - script.execute: led_restore_status
 
