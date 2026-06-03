@@ -1,7 +1,7 @@
 uart:
   id: modbus_uart
-  tx_pin: GPIO2
-  rx_pin: GPIO3
+  tx_pin: GPIO3
+  rx_pin: GPIO2
   baud_rate: 19200
   stop_bits: 1
   data_bits: 8
